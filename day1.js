@@ -48,4 +48,19 @@ function fizzBuzz(n){
 fizzBuzz(15)
 
 // Problem Number 19 
-// 
+// Invert an Object  [Easy]
+// Description: Write a function invertObject(obj) that swaps the keys and values of an object.
+// Example:
+// Input: {a: 1, b: 2}  → Output: {1: 'a', 2: 'b'}
+// Hint: Use Object.entries() and reduce().
+
+//  Soltutions :
+function invertObject(obj){
+    let result = {}
+for(let key in obj){
+    let value = obj[key]
+    result[value] = key
+}
+return result 
+}
+console.log(invertObject({a:1,b:10,c:100}))
