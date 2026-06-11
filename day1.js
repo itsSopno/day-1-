@@ -64,3 +64,37 @@ for(let key in obj){
 return result 
 }
 console.log(invertObject({a:1,b:10,c:100}))
+
+// Problem Number 20
+//  Find Duplicate Values in Array of Objects  [Medium]
+// Description: Given an array of objects, write a function findDuplicateNames(arr) that returns names that appear more than once.
+// Example:
+// Input: [{name:'Ali'},{name:'Sara'},{name:'Ali'}]Output: ['Ali']
+// Hint: Use a frequency map (object) to count occurrences.
+// Soltutions : 
+function findDuplicate(arr){
+    const count = {};
+    const duplicates = [];
+    for(let number of arr){
+        count[number.name] = (count[number.name]||0) + 1 ; 
+
+    }
+    for(let name in count ){
+        if(count[name] > 1 ){
+            duplicates.push(name);
+        }
+    }
+    return duplicates
+}
+const data = [
+    {
+        name : "Ali"
+    },{
+        name:"Sara"
+    },{
+        name:"Sheikh Hasina"
+    },{
+        name:"Sara"
+    }
+]
+console.log(findDuplicate(data))
