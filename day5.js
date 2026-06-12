@@ -86,16 +86,16 @@ console.log(add(2)(3))
 // const memoAdd = memoize(n => n + 10);memoAdd(5); // 15 (computed)memoAdd(5); // 15 (from cache)
 // Hint: Use an object as a cache inside the outer function.
 // Solutions :
-function memoize(fn){
-    const cache = {}
-    return function(...args){
-        const key = args.join()
-        if(cache[key]){
-            return cache[key]
-        }else{
-            return cache[key] = fn(...args)
+function memoize(fn) {
+    const cache = {};
+
+    return function (...args) {
+        const key = JSON.stringify(args);
+
+        if (key in cache) {
+            return cache[key];
         }
-    }
+
+        return (cache[key] = fn(...args));
+    };
 }
-const fibo = memoize(fibonacci)
-console.log(fibo(5))
