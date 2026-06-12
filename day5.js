@@ -32,3 +32,49 @@ console.log(factorial(5))
     }
  }
 console.log(fibonacci(6))
+
+// Problem Number 23 
+// : Create a Counter with Closure  [Medium]
+// Description: Write a function makeCounter() that returns an object with increment, decrement, and getCount methods using closure.
+// Example:
+// const c = makeCounter();c.increment(); c.increment();c.getCount(); // 2
+// Hint: Use a variable inside the outer function that inner functions can access.
+// Solutions : 
+function Counter(n){
+let counter = 0 ;
+return {
+    increment : function(){
+        counter++
+    },
+    decrement: function(){
+        counter--
+    },
+    getCount : function(){
+        console.log(counter)
+    }
+}
+}
+const counter = Counter()
+counter.increment()
+counter.increment()
+counter.getCount()
+counter.decrement()
+
+// Problem Number 24 
+// Curry a Function  [Medium]
+// Description: Write a function curry(fn) that converts a function of two arguments into a curried version.
+// Example:
+// const add = curry((a,b) => a+b);add(2)(3); // 5
+// Hint: Return a function from inside a function.
+// Solutions:
+// function curry(fn){
+//     return function(a){
+//         return function(b){
+//             return fn(a,b)
+//         }
+//     }
+// }
+// const add = curry((a,b)=>{
+//     return a+b
+// })
+// console.log(add(2)(3))
