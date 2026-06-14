@@ -24,13 +24,19 @@ console.log(age)
 // Input: [1,2], [3,4], [5]Output: [1,2,3,4,5]
 // Hint: Use rest parameters and spread inside reduce or flat.
 // Solutions : 
-function mergeArrays(...arrays){
-    return arrays.reduce((merged, current) => {
-        return [...merged , ...current];
-    } , [])
-}
+// function mergeArrays(...arrays){
+//     return arrays.reduce((merged, current) => {
+//         return [...merged , ...current];
+//     } , [])
+// }
 
-console.log(mergeArrays([1,2],[3,4],[5]))
+// console.log(mergeArrays([1,2],[3,4],[5]))
+
+function mergeArrays(...arrays){
+    return arrays.flat();
+
+}
+console.log(mergeArrays([1,2],[3,4],[5,6]))
 
 // Problem Number 28 
 // Promise Chain  [Medium]
