@@ -104,3 +104,31 @@ function flattenObject(obj, parentKey = '', result = {}){
 // Test Case for Problem 39
 const nestedObj = { a: 1, b: { c: 2, d: { e: 3 } } };
 console.log("Problem 39 Result:", flattenObject(nestedObj));
+
+
+// Problem 40 
+// Group Array by Property  [Medium]
+// Description: Write a function groupBy(arr, key) that groups an array of objects by a given property key.
+// Example:
+// groupBy([{type:'fruit',name:'apple'},{type:'veg',name:'carrot'},{type:'fruit',name:'mango'}], 'type')// {fruit: [...], veg: [...]}
+// Hint: Use reduce() and build an object where each key maps to an array.
+
+// solutions : 
+function groupBy(arr, key) {
+    return arr.reduce((acc, obj) => {
+        const groupKey = obj[key]
+        if (!acc[groupKey]) {
+            acc[groupKey] = []
+        }
+        acc[groupKey].push(obj)
+        return acc
+    }, {})
+}
+
+// Test Case for Problem 40
+const data = [
+    { type: 'fruit', name: 'apple' },
+    { type: 'veg', name: 'carrot' },
+    { type: 'fruit', name: 'mango' }
+];
+console.log("Problem 40 Result:", groupBy(data, 'type'));
